@@ -1,9 +1,9 @@
-from app.common.indexer_provider import ElasticProvider
+#from app.common.indexer_provider import ElasticProvider
 from flask import Blueprint
 import json, time
 
 mod_search = Blueprint("mod_search", __name__, url_prefix="/search")
-elastic_provider = ElasticProvider("indexer-imovel", "imovel")
+#elastic_provider = ElasticProvider("indexer-imovel", "imovel")
 
 
 @mod_search.route("/<description>", methods=["GET"])
