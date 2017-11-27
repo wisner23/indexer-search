@@ -1,6 +1,7 @@
 #from app.common.indexer_provider import ElasticProvider
-from flask import Blueprint
+from flask import Blueprint, abort
 import json, time
+
 
 mod_search = Blueprint("mod_search", __name__, url_prefix="/search")
 #elastic_provider = ElasticProvider("indexer-imovel", "imovel")
@@ -20,3 +21,8 @@ def search(description):
 @mod_search.route("/", methods=["GET"])
 def get_status():
     return "its working - search"
+
+
+@mod_search.route("/get_aborted", methods=["GET"])
+def get_status_aborted():
+    return abort(400)
